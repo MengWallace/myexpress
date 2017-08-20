@@ -7,13 +7,33 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var settings = require('./settings');
 //引入模块
 var app = express();// 生成一个express实例app
+
+//引入会话支持模块
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));//设置views文件夹为存放视图文件的目录，即存放模板文件的地方；_dirname为全局变量，存储当前正在执行的脚本所在的目录
 app.set('view engine', 'ejs');//设置视图模板引擎为ejs
 
+app.use(session({
+	secret:settings.cookieSecret,
+	key:settings.db,// cookie name
+	cookie:{
+		maxAge:1000*60*24*24*30
+	},//30天
+	resave: false,
+  	saveUninitialized: true,
+	store: new MongoStore({
+		// db:settings.db,
+		// host:settings.host,
+		// port:settings.port,
+		url: 'mongodb://localhost/blog'
+	})
+}));
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));// 加载日志的中间件
