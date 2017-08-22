@@ -6,4 +6,6 @@
 ## routes 存放路由文件
 ## views 存放视图文件，或者说是模板文件
 ## bin 存放可执行文件
-## express 路由规则 app.get()和get.post(); 一个参数都为请求的路径，第二个参数为处理请求的回调函数，回调函数由两个参数，分别为req和res，代表请求信息和响应信息。路径请求及对应的获取路径有以下几种方式（1）req.query : 处理get请求，获取get请求参数。（2）req.params:处理/:xxx形式的get或post请求，获取请求参数。（3）req.body: 处理post请求，获取post请求体。（4）req.param():处理get和post请求，
+## express 路由规则 app.get()和get.post(); 一个参数都为请求的路径，第二个参数为处理请求的回调函数，回调函数由两个参数，分别为req和res，代表请求信息和响应信息。路径请求及对应的获取路径有以下几种方式（1）req.query : 处理get请求，获取get请求参数。（2）req.params:处理/:xxx形式的get或post请求，获取请求参数。（3）req.body: 处理post请求，获取post请求体。（4）req.param():处理get和post请求，但查找优先级由高到低req.params-req.body-req.query
+# 模板引擎
+## <% code %>:javascript代码 <%=code显示替换过HTML特殊字符的内容 %> <%-code%> 显示原始HTML
