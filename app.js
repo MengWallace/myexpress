@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var settings = require('./settings');
+var flash = require('./connect-flash');
 //引入模块
 var app = express();// 生成一个express实例app
 
@@ -18,6 +19,8 @@ var MongoStore = require('connect-mongo')(session);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));//设置views文件夹为存放视图文件的目录，即存放模板文件的地方；_dirname为全局变量，存储当前正在执行的脚本所在的目录
 app.set('view engine', 'ejs');//设置视图模板引擎为ejs
+
+app.use(flash());
 
 app.use(session({
 	secret:settings.cookieSecret,

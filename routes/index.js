@@ -7,6 +7,9 @@
 // });
 
 // module.exports = router;
+var crypto = require('crypto');//生成散列值加密密码
+User = require('../models/user.js');
+
 module.exports  = function(app) {
 	app.get('/', function(req, res) {
 		res.render('index', {
