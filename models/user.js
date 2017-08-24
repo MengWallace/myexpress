@@ -1,4 +1,4 @@
-var monogodb = require('./db');
+var mongodb = require('./db');
 
 function User(user) {
 	this.name = user.name;

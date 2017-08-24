@@ -4,11 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var flash = require('connect-flash');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var settings = require('./settings');
-var flash = require('./connect-flash');
+
 //引入模块
 var app = express();// 生成一个express实例app
 
