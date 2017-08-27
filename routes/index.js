@@ -13,12 +13,18 @@ User = require('../models/user.js');
 module.exports  = function(app) {
 	app.get('/', function(req, res) {
 		res.render('index', {
-			title:'主页'
+			title:'主页',
+			user: req.session.user,
+			success: req.flash('success').toString(),
+			error:req.flash('error').toString()
 		});
 	});
 	app.get('/reg', function(req, res) {
 		res.render('reg', {
-			title:'注册'
+			title:'注册',
+			user: req.session.user,
+			success: req.flash('success').toString(),
+			error:req.flash('error').toString()
 		});
 	});
 	app.post('/reg', function(req, res) {
@@ -57,7 +63,7 @@ module.exports  = function(app) {
 				}
 				req.session.user = user;
 				req.flash('success', '注册成功');
-				res.redirect('/')//注册成功后返回主页
+				res.redirect('/');//注册成功后返回主页
 
 			});
 		});

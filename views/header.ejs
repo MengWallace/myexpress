@@ -10,8 +10,19 @@
   	</header>
   	<nav>
   		<span><a title="主页" href="/">home</a></span>
+        <% if (user) { %>
+        <span><a href="/post" title="发表">post</a></span>
+         <span><a href="/lagout" title="登出">lagout</a></span>
+        <% } else { %>
 		<span><a titlle="登录" href="/login">login</a></span>
 		<span><a title="注册" href="/reg">register</a></span>
+        <% } %>
   	</nav>
     <article>
+    <% if (success) { %>
+    <div><%= success %></div>
+    <% } %>
+    <% if (error) { %>
+    <div><%= error %></div>
+    <% } %>
     	
