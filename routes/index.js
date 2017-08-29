@@ -73,6 +73,9 @@ module.exports  = function(app) {
 			title:'登录'
 		});
 	});
+	app.post('/login', function(req, res) {
+		
+	});
 	app.get('/nswbmw',function(req, res) {
 		res.send('hello world');
 	});
